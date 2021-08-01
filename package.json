@@ -188,7 +188,6 @@
 		"vcf"
 	],
 	"devDependencies": {
-		"@types/node": "^13.1.4",
 		"ava": "^2.3.0",
 		"noop-stream": "^0.1.0",
 		"read-chunk": "^3.2.0",
@@ -197,8 +196,8 @@
 	},
 	"dependencies": {
 		"readable-web-to-node-stream": "^3.0.0",
-		"strtok3": "6.1.3",
-		"token-types": "^3.0.0"
+		"strtok3": "^6.2.4",
+		"token-types": "^4.1.1"
 	},
 	"xo": {
 		"envs": [
