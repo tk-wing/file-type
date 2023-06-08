@@ -167,7 +167,8 @@ const names = {
 		'fixture-unknown-ogg' // Manipulated fixture to unrecognized Ogg based file
 	],
 	avif: [
-		'fixture-yuv420-8bit' // Multiple bit-depths and/or subsamplings
+		'fixture-yuv420-8bit', // Multiple bit-depths and/or subsamplings
+		'fixture-sequence'
 	],
 	eps: [
 		'fixture',
@@ -542,4 +543,9 @@ test('odd file sizes', async t => {
 		const stream = new BufferedStream(buffer);
 		await t.notThrowsAsync(FileType.fromStream(stream), `fromStream: File size: ${size} bytes`);
 	}
+});
+
+test('corrupt MKV throws', async t => {
+	const filePath = path.join(__dirname, 'fixture/fixture-corrupt.mkv');
+	await t.throwsAsync(FileType.fromFile(filePath), {message: /out of range/});
 });

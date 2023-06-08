@@ -463,6 +463,7 @@ async function _fromTokenizer(tokenizer) {
 		const brandMajor = buffer.toString('binary', 8, 12).replace('\0', ' ').trim();
 		switch (brandMajor) {
 			case 'avif':
+			case 'avis':
 				return {ext: 'avif', mime: 'image/avif'};
 			case 'mif1':
 				return {ext: 'heic', mime: 'image/heif'};
@@ -681,7 +682,7 @@ async function _fromTokenizer(tokenizer) {
 			let mask = 0x80;
 			let ic = 0; // 0 = A, 1 = B, 2 = C, 3 = D
 
-			while ((msb & mask) === 0) {
+			while ((msb & mask) === 0 && mask !== 0) {
 				++ic;
 				mask >>= 1;
 			}
