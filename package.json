@@ -197,7 +197,7 @@
 	},
 	"dependencies": {
 		"readable-web-to-node-stream": "^3.0.0",
-		"strtok3": "^6.2.4",
+		"strtok3": "git+https://github.com/tk-wing/strtok3.git#v6.3.0@workers",
 		"token-types": "^4.1.1"
 	},
 	"xo": {
